@@ -9,6 +9,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import dao.Dao;
 import exception.LimitLoginException;
 import model.Employee;
 
