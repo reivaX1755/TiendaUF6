@@ -29,6 +29,7 @@ public class Employee extends Person implements Logable{
         Employee employeeConsulta = dao.getEmployee(employeeID, password);
         if(employeeConsulta != null) {
         	isLogged = true;
+        	System.out.println("Inicio de sesión correcto!");
         }
         try {
 			dao.disconnect();
