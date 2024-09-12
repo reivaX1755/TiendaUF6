@@ -105,9 +105,19 @@ public class ShopView extends JFrame implements ActionListener, KeyListener{
 	            productView.setVisible(true);
 			}
 		});
-		eliminarproducto.setBounds(124, 163, 157, 21);
+		eliminarproducto.setBounds(127, 194, 157, 21);
 		contentPane.add(eliminarproducto);
-		eliminarproducto.addKeyListener(this);
+		
+		JButton showInventory = new JButton("5. Mostrar Inventario");
+		showInventory.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int opcion = 5;
+				shop.showInventory();
+			}
+		});
+		showInventory.setBounds(127, 163, 157, 21);
+		contentPane.add(showInventory);
+		showInventory.addKeyListener(this);
 		
 	}
 
@@ -136,6 +146,10 @@ public class ShopView extends JFrame implements ActionListener, KeyListener{
 			opcion = 3;
             productView = new ProductView(shop, opcion);
             productView.setVisible(true);
+            break;
+		case '5':
+			opcion = 5;
+			shop.showInventory();
             break;
 		case '9':
 			opcion = 9;
