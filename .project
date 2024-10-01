@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
+<<<<<<< HEAD
 	<name>TiendaUF6</name>
+=======
+	<name>Tienda Jordi Vidal</name>
+>>>>>>> branch '1-modificar-shop-para-conseguir-un-refactor-carga-inicial-inventario-en-base-a-un-fichero' of https://github.com/reivaX1755/TiendaUF6.git
 	<comment></comment>
 	<projects>
 	</projects>
