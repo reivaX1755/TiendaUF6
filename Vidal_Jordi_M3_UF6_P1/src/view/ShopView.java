@@ -60,7 +60,7 @@ public class ShopView extends JFrame implements ActionListener, KeyListener{
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("Pulse o seleccione una opción:");
-		lblNewLabel_1.setBounds(115, 47, 190, 13);
+		lblNewLabel_1.setBounds(109, 33, 190, 13);
 		contentPane.add(lblNewLabel_1);
 		
 		JButton contarcaja = new JButton("1. Contar Caja");
@@ -96,6 +96,7 @@ public class ShopView extends JFrame implements ActionListener, KeyListener{
 			}
 		});
 		añadirstock.setBounds(127, 155, 157, 21);
+
 		contentPane.add(añadirstock);
 		añadirstock.addKeyListener(this);
 		
@@ -107,6 +108,7 @@ public class ShopView extends JFrame implements ActionListener, KeyListener{
 	            productView.setVisible(true);
 			}
 		});
+
 		eliminarproducto.setBounds(127, 217, 157, 21);
 		contentPane.add(eliminarproducto);
 		
@@ -117,6 +119,7 @@ public class ShopView extends JFrame implements ActionListener, KeyListener{
 				shop.showInventory();
 			}
 		});
+
 		showInventory.setBounds(127, 186, 157, 21);
 		contentPane.add(showInventory);
 		

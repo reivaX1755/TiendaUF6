@@ -114,6 +114,7 @@ public class Shop {
 	        }
 	    } while (!logged);
 	}
+
 	public double showCash() {
 	    double valorCash = Math.round(cash.getValue() * 100.00) / 100.00;
 	    System.out.print("\nDinero actual: " + valorCash + "€"); 

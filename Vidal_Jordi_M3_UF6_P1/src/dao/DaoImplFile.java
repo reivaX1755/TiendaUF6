@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import model.Employee;
 import model.Product;
 
+
 public class DaoImplFile implements Dao{
 
 	public ArrayList<Product> inventory;
@@ -62,6 +63,8 @@ public class DaoImplFile implements Dao{
 		    }
 		}
 		return inventory;
+
+		
 	}
 
 	@Override
