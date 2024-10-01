@@ -6,7 +6,7 @@ import model.Employee;
 import model.Product;
 
 public interface Dao {
-	public void connect();
+	public void connect();  throws SQLException;
 	
 	public Employee getEmployee(int employeeId, String password);
 
