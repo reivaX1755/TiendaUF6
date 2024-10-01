@@ -110,32 +110,7 @@ public class Shop {
 	    } while (!logged);
 	}
 	public void loadInventory() {
-		try {
-		    File fichero = new File("src\\Files\\inputInventory.txt");	//Ruta del archivo relativa para que funcione su exportamos a otro pc
-		    if (fichero.canRead()) {
-		        FileReader newFichero = new FileReader(fichero);
-		        BufferedReader newFichero2 = new BufferedReader(newFichero);
-		        String linea = newFichero2.readLine();
-		        while (linea != null) {
-		            linea = linea.replace("Product:", "");
-		            String[] partes = linea.split(";");
-		            String nombre = partes[0];//Se podria hacer []String nombre = partes[0].split(":") y luego pasar []String a String para guardar el dato
-		            double precio = Double.parseDouble(partes[1].replace("Wholesaler Price:", ""));
-		            boolean disponible = true;
-		            int cantidad = Integer.parseInt(partes[2].replace("Stock:", ""));
-		            inventory.add(new Product(nombre, precio, disponible, cantidad));
-		            linea = newFichero2.readLine();
-		        }
-		        newFichero2.close();    
-		    }
-		} catch (java.io.IOException | java.lang.SecurityException e) {
-		    System.out.print("Ha habido un problema con el fichero!");
-		}
-		for (Product product : inventory) {
-		    if (product != null) {
-		        product.setPublicPrice(product.getWholesalerPrice());
-		    }
-		}
+		
 	}
 	public double showCash() {
 	    double valorCash = Math.round(cash.getValue() * 100.00) / 100.00;

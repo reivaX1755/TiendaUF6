@@ -58,7 +58,7 @@ public class ShopView extends JFrame implements ActionListener, KeyListener{
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("Pulse o seleccione una opción:");
-		lblNewLabel_1.setBounds(115, 47, 190, 13);
+		lblNewLabel_1.setBounds(109, 33, 190, 13);
 		contentPane.add(lblNewLabel_1);
 		
 		JButton contarcaja = new JButton("1. Contar Caja");
@@ -69,7 +69,7 @@ public class ShopView extends JFrame implements ActionListener, KeyListener{
 	            cashView.setVisible(true);
 			}
 		});
-		contarcaja.setBounds(124, 70, 157, 21);
+		contarcaja.setBounds(127, 87, 157, 21);
 		contentPane.add(contarcaja);
 		contarcaja.addKeyListener(this);
 		
@@ -81,7 +81,7 @@ public class ShopView extends JFrame implements ActionListener, KeyListener{
 	            productView.setVisible(true);
 			}
 		});
-		añadirproducto.setBounds(124, 101, 157, 21);
+		añadirproducto.setBounds(127, 118, 157, 21);
 		contentPane.add(añadirproducto);
 		añadirproducto.addKeyListener(this);
 		
@@ -93,7 +93,7 @@ public class ShopView extends JFrame implements ActionListener, KeyListener{
 	            productView.setVisible(true);
 			}
 		});
-		añadirstock.setBounds(124, 132, 157, 21);
+		añadirstock.setBounds(127, 149, 157, 21);
 		contentPane.add(añadirstock);
 		añadirstock.addKeyListener(this);
 		
@@ -105,7 +105,7 @@ public class ShopView extends JFrame implements ActionListener, KeyListener{
 	            productView.setVisible(true);
 			}
 		});
-		eliminarproducto.setBounds(127, 194, 157, 21);
+		eliminarproducto.setBounds(127, 211, 157, 21);
 		contentPane.add(eliminarproducto);
 		
 		JButton showInventory = new JButton("5. Mostrar Inventario");
@@ -115,8 +115,17 @@ public class ShopView extends JFrame implements ActionListener, KeyListener{
 				shop.showInventory();
 			}
 		});
-		showInventory.setBounds(127, 163, 157, 21);
+		showInventory.setBounds(127, 180, 157, 21);
 		contentPane.add(showInventory);
+		
+		JButton exportarInventario = new JButton("0.  Exportar Inventario");
+		exportarInventario.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+		exportarInventario.setBounds(127, 56, 157, 21);
+		contentPane.add(exportarInventario);
 		showInventory.addKeyListener(this);
 		
 	}

@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import model.Employee;
 import model.Product;
 
+
 public class DaoImplFile implements Dao{
 
 	@Override
@@ -26,6 +27,8 @@ public class DaoImplFile implements Dao{
 	@Override
 	public ArrayList<Product> getInventory() {
 		return null;
+		
+
 	}
 
 	@Override
