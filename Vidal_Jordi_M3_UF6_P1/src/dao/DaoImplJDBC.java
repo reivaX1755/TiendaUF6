@@ -15,11 +15,15 @@ public class DaoImplJDBC implements Dao{
 	private Connection connection;
 	
 	@Override
-	public void connect() throws SQLException {
+	public void connect() {
 		String url = "jdbc:mysql://localhost:3306/Shop";
 		String user = "root";
 		String pass = "";
-		this.connection = DriverManager.getConnection(url, user, pass);
+		try {
+			this.connection = DriverManager.getConnection(url, user, pass);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override
@@ -46,9 +50,13 @@ public class DaoImplJDBC implements Dao{
 	}
 
 	@Override
-	public void disconnect() throws SQLException{
+	public void disconnect(){
 		if (connection != null) {
-			connection.close();
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 

@@ -9,6 +9,8 @@ import javax.swing.border.EmptyBorder;
 import main.Shop;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -44,7 +46,7 @@ public class ShopView extends JFrame implements ActionListener, KeyListener{
 	public ShopView() {
 		
 		shop = new Shop();
-		shop.loadInventory();
+		shop.inventory = shop.dao.getInventory();
 		setTitle("MiTienda.com");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -69,7 +71,7 @@ public class ShopView extends JFrame implements ActionListener, KeyListener{
 	            cashView.setVisible(true);
 			}
 		});
-		contarcaja.setBounds(124, 70, 157, 21);
+		contarcaja.setBounds(127, 93, 157, 21);
 		contentPane.add(contarcaja);
 		contarcaja.addKeyListener(this);
 		
@@ -81,7 +83,7 @@ public class ShopView extends JFrame implements ActionListener, KeyListener{
 	            productView.setVisible(true);
 			}
 		});
-		añadirproducto.setBounds(124, 101, 157, 21);
+		añadirproducto.setBounds(127, 124, 157, 21);
 		contentPane.add(añadirproducto);
 		añadirproducto.addKeyListener(this);
 		
@@ -93,7 +95,7 @@ public class ShopView extends JFrame implements ActionListener, KeyListener{
 	            productView.setVisible(true);
 			}
 		});
-		añadirstock.setBounds(124, 132, 157, 21);
+		añadirstock.setBounds(127, 155, 157, 21);
 		contentPane.add(añadirstock);
 		añadirstock.addKeyListener(this);
 		
@@ -105,7 +107,7 @@ public class ShopView extends JFrame implements ActionListener, KeyListener{
 	            productView.setVisible(true);
 			}
 		});
-		eliminarproducto.setBounds(127, 194, 157, 21);
+		eliminarproducto.setBounds(127, 217, 157, 21);
 		contentPane.add(eliminarproducto);
 		
 		JButton showInventory = new JButton("5. Mostrar Inventario");
@@ -115,8 +117,17 @@ public class ShopView extends JFrame implements ActionListener, KeyListener{
 				shop.showInventory();
 			}
 		});
-		showInventory.setBounds(127, 163, 157, 21);
+		showInventory.setBounds(127, 186, 157, 21);
 		contentPane.add(showInventory);
+		
+		JButton Exportar = new JButton("0. Exportar Inventario");
+		Exportar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				writeInventory(shop);
+			}
+		});
+		Exportar.setBounds(125, 62, 159, 21);
+		contentPane.add(Exportar);
 		showInventory.addKeyListener(this);
 		
 	}
@@ -132,8 +143,12 @@ public class ShopView extends JFrame implements ActionListener, KeyListener{
 		
 		char key = e.getKeyChar();
 		switch(key) {
+		case '0':
+			int opcion = 0;
+			writeInventory(shop);
+            break;
 		case '1':
-			int opcion = 1;
+			opcion = 1;
             CashView cashView = new CashView(shop);
             cashView.setVisible(true);
             break;
@@ -169,5 +184,13 @@ public class ShopView extends JFrame implements ActionListener, KeyListener{
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		
+	}
+	public void writeInventory(Shop shop) {
+		boolean isCreated = shop.dao.writeInventory(shop.inventory);
+		if(isCreated == true) {
+			JOptionPane.showMessageDialog(null, "Archivo Creado con exito", "Info", JOptionPane.INFORMATION_MESSAGE);
+		}else {
+			JOptionPane.showMessageDialog(null, "ERROR al crear el archivo", "Error", JOptionPane.ERROR_MESSAGE);
+		}
 	}
 }
